@@ -1,4 +1,3 @@
-
-from ._devices import *
-from ._actions import *
-from ._triggers import *
+from .devices import *
+from .actions import *
+from .triggers import *
