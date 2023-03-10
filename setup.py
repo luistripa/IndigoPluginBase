@@ -8,7 +8,7 @@ setup(
     license='The Unlicense',
     author='Luis Tripa',
     author_email='',
-    description='Clone of the Indigo Python API to help IDE code completion',
+    description='Clone of the Indigo Python API to assist IDE code completion',
     install_requires=['deprecation'],
     python_requires='>=3.6',
 )
