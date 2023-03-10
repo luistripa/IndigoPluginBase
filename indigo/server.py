@@ -1,5 +1,12 @@
 import indigo
-from typing import List
+
+
+address: str = "localhost"
+apiVersion: str = "3.2"
+connectionGood: bool = True
+licenseStatus: indigo.kLicenseStatus = indigo.kLicenseStatus.ActiveSubscription
+portNum: int = 1176
+version: str = "2022.2.0"
 
 
 def log(message, type="Indigo Interacive Shell"):
@@ -12,9 +19,9 @@ def log(message, type="Indigo Interacive Shell"):
     pass
 
 
-def getPluginList() -> List[indigo.Plugin]:  # TODO: Is there a Plugin class in indigo package?
+def getPluginList() -> list[indigo.PluginInfo]:
     return []
 
 
-def getPlugin(pluginId: str) -> indigo.Plugin:
+def getPlugin(pluginId: str) -> indigo.PluginInfo:
     pass

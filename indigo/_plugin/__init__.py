@@ -6,10 +6,26 @@ import indigo
 import logging
 
 
-class Plugin:
-    # TODO: Find a better place for this class, if there's any...
+class PluginInfo:
+
+    pluginId: str = "IndigoPluginBase"
+    pluginVersion: str = "1.0.0"
+    pluginSupportURL: str = ""
+
     def isInstalled(self) -> bool:
         return True
+
+    def isEnabled(self) -> bool:
+        return True
+
+    def isRunning(self) -> bool:
+        return True
+
+    def restart(self, waitUnitlDone=True):
+        pass
+
+    def executeAction(self, actionId: str, deviceId: int, props: dict):
+        pass
 
     # TODO: Add more methods
 
