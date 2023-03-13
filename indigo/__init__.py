@@ -1,10 +1,10 @@
-from ._devices import *
-from ._enums import *
 from ._types import *
+from ._enums import *
+from ._devices import *
 from ._folders import *
+from ._actions import *
 from ._triggers import *
 from ._variables import *
-from ._actions import *
 from ._plugin import *
 
 import indigo.device
