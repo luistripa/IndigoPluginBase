@@ -9,7 +9,6 @@ from ._plugin import *
 
 import indigo.device as device
 import indigo.dimmer as dimmer
-import indigo.folder as folder
 import indigo.server as server
 import indigo.trigger as trigger
 import indigo.variable as variable
