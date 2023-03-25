@@ -7,12 +7,12 @@ from ._triggers import *
 from ._variables import *
 from ._plugin import *
 
-import indigo.device
-import indigo.dimmer
-import indigo.folder
-import indigo.server
-import indigo.trigger
-import indigo.variable
+import indigo.device as device
+import indigo.dimmer as dimmer
+import indigo.folder as folder
+import indigo.server as server
+import indigo.trigger as trigger
+import indigo.variable as variable
 
 devices = indigo.DeviceList()
 variables = indigo.VariableList()
