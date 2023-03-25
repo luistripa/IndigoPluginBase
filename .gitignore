@@ -1,3 +1,4 @@
 build/
 .idea/
 indigo.egg-info/
+.DS_Store
