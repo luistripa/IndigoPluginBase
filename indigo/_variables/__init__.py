@@ -6,6 +6,9 @@ import dataclasses
 
 class VariableList(indigo.List):
 
+    folders: indigo.FolderList = None
+    folder: indigo.FolderCmds = None
+
     def __iter__(self, filter="") -> indigo.List["indigo.Variable"]:
         pass
 

@@ -7,6 +7,9 @@ import indigo
 
 class DeviceList(indigo.List):
 
+    folders: indigo.FolderList = None
+    folder: indigo.FolderCmds = None
+
     def subscribeToChanges(self):
         """
         Must only be used inside plugins.

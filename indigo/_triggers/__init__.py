@@ -4,6 +4,9 @@ from typing import List
 
 class TriggerList(indigo.List):
 
+    folders: indigo.FolderList = None
+    folder: indigo.FolderCmds = None
+
     def __iter__(self, filter="") -> List["indigo.Trigger"]:
         pass
 
