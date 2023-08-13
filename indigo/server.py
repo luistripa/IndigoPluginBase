@@ -126,6 +126,21 @@ def getReflectorURL() -> Union[str, None]:
     pass
 
 
+def getRelectorStatus() -> dict[str, Any]:
+    """
+    Returns a dict containing the status of the Indigo reflector server.
+    Keys:
+        licenseStatus: indigo.kLicenseStatus
+        reflectorURL: str
+        reflectorStatusMsg: str
+    """
+    return {
+        "licenseStatus": licenseStatus,
+        "reflectorURL": getReflectorURL(),
+        "reflectorStatusMsg": "Your reflector is activated and enabled."
+    }
+
+
 def getSerialPorts(filter: Union[str, None] = None) -> list[str]:
     """
     Returns a list of serial ports that are available on the system.
@@ -189,5 +204,34 @@ def speak(text: str, waitUntilDone: bool = False):
     :param waitUntilDone: If true, the command will not return until the text has been spoken.
     # TODO: waitUntilDone default value?
     :return: None
+    """
+    pass
+
+
+def broadcastToSubscribers(message_topic: str, message: Any) -> None:
+    """
+
+    Broadcasts a message to all subscribers of a specific topic, including subscribers on other plugins.
+
+    :param message_topic: The topic of the message to broadcast.
+    :type message_topic: str
+    :param message: The message to broadcast. Can be a simple python object (string, list, dict, etc...). Complex objects may not work as intended.
+    :type message: Any
+    :return: None
+    """
+    pass
+
+
+def subscribeToBroadcast(pluginId: int, message_topic: str, callback: Callable[Any]) -> None:
+    """
+    Subscribes to a broadcast message topic. Broadcasters can be other plugins.
+
+    :param pluginId: The plugin id of the plugin to subscribe to.
+    :param message_topic: The topic of the message to subscribe to.
+    :param callback: The callback function to call when a message is received.
+    :return: None
+
+    The callback function must have the following signature:
+    def callback_func_name(self, pythonObject: Any) -> None:
     """
     pass
