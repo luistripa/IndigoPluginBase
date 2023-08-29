@@ -1,14 +1,16 @@
-import indigo
+from __future__ import annotations
+
 from typing import List
+
+import indigo
 
 
 class TriggerList(indigo.List):
 
-    folders: indigo.FolderList = None
-    folder: indigo.FolderCmds = None
+    folders: indigo.FolderList
+    folder: indigo.FolderCmds
 
-    def __iter__(self, filter="") -> List["indigo.Trigger"]:
-        pass
+    def __iter__(self, filter="") -> List["indigo.Trigger"]: ...
 
 
 class Trigger:
@@ -23,8 +25,7 @@ class Trigger:
     suppressLogging: bool
     upload: bool  # True if IndigoServer should attempt to upload the trigger to the interface - will always be False for plugin triggers
 
-    def replaceOnServer(self):
-        pass
+    def replaceOnServer(self): ...
 
 
 class DeviceStateChangeTrigger(Trigger):

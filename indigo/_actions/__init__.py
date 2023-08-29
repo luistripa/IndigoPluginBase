@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 from typing import Union, Dict, List
 
 import indigo
@@ -19,7 +21,7 @@ class BaseAction:
     @property
     def configured(self) -> bool:
         """Returns True if the action is configured, False otherwise."""
-        return True
+        ...
 
 class DeviceAction(BaseAction):
     """API v2.0+ only"""

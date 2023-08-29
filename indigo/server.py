@@ -1,20 +1,21 @@
+from __future__ import annotations
 import logging
-from typing import Union, Any
+from typing import Union, Any, Callable, Optional
 
 import indigo
 
 import datetime
 
 
-address: str = "localhost"
-apiVersion: str = "3.2"
-connectionGood: bool = True
-licenseStatus: indigo.kLicenseStatus = indigo.kLicenseStatus.ActiveSubscription
-portNum: int = 1176
-version: str = "2022.2.0"
+address: str
+apiVersion: str
+connectionGood: bool
+licenseStatus: indigo.kLicenseStatus
+portNum: int
+version: str
 
 
-def log(message, type="Indigo Interacive Shell", level: int = logging.INFO, isError: bool = False):
+def log(message: Any, type: str = "Indigo Interacive Shell", level: int = logging.INFO, isError: bool = False):
     """
     Logs a message to the Indigo server log.
     :param message: The message to log.
@@ -23,7 +24,7 @@ def log(message, type="Indigo Interacive Shell", level: int = logging.INFO, isEr
     :param isError: If true, the message will be logged as an error and displayed with red text in the log console.
     :return: None
     """
-    pass
+    ...
 
 
 def getPluginList() -> list[indigo.PluginInfo]:
@@ -32,7 +33,7 @@ def getPluginList() -> list[indigo.PluginInfo]:
 
     :return: A list of all enabled plugin object instances.
     """
-    return []
+    ...
 
 
 def getPlugin(pluginId: str) -> indigo.PluginInfo:
@@ -42,10 +43,10 @@ def getPlugin(pluginId: str) -> indigo.PluginInfo:
     :param pluginId: The plugin id of the plugin to return, such as "com.perceptiveautomation.testplugin"
     :return: The plugin object instance.
     """
-    pass
+    ...
 
 
-def calculateSunrise(myDateObject: Union[datetime.date, None] = None) -> datetime.datetime:
+def calculateSunrise(myDateObject: Optional[datetime.date] = None) -> datetime.datetime:
     """
     Calculates the sunrise time for the given date.
 
@@ -54,10 +55,10 @@ def calculateSunrise(myDateObject: Union[datetime.date, None] = None) -> datetim
     :param myDateObject: The date to calculate the sunrise for.
     :return: The sunrise time for the given date.
     """
-    pass
+    ...
 
 
-def calculateSunset(myDateObject: Union[datetime.date, None] = None) -> datetime.datetime:
+def calculateSunset(myDateObject: Optional[datetime.date] = None) -> datetime.datetime:
     """
     Calculates the sunset time for the given date.
 
@@ -66,7 +67,7 @@ def calculateSunset(myDateObject: Union[datetime.date, None] = None) -> datetime
     :param myDateObject: The date to calculate the sunset for.
     :return: The sunset time for the given date.
     """
-    pass
+    ...
 
 
 def getEventLogList(showTimeStamp: bool = True, lineCount: int = 1500, returnAsList: bool = False) -> \
@@ -86,7 +87,7 @@ def getEventLogList(showTimeStamp: bool = True, lineCount: int = 1500, returnAsL
                     If false a string containing a textual description of the log lines is returned
     :return: A string containing the log entries or a list of dicts containing the log entry attributes.
     """
-    pass
+    ...
 
 
 def getDbFilePath() -> str:
@@ -95,7 +96,7 @@ def getDbFilePath() -> str:
 
     :return: The path to the Indigo database file.
     """
-    pass
+    ...
 
 
 def getInstallFolderPath() -> str:
@@ -105,7 +106,7 @@ def getInstallFolderPath() -> str:
 
     :return: The path to the Indigo installation folder.
     """
-    pass
+    ...
 
 
 def getLatitudeAndLongitude() -> tuple[float, float]:
@@ -114,16 +115,16 @@ def getLatitudeAndLongitude() -> tuple[float, float]:
 
     :return: A tuple containing the latitude and longitude of the current Indigo location.
     """
-    pass
+    ...
 
 
-def getReflectorURL() -> Union[str, None]:
+def getReflectorURL() -> Optional[str]:
     """
     Returns the URL of the Indigo reflector server.
     
     :return: The URL of the Indigo reflector server or None if there is no reflector or the remote access is disabled.
     """
-    pass
+    ...
 
 
 def getRelectorStatus() -> dict[str, Any]:
@@ -134,14 +135,10 @@ def getRelectorStatus() -> dict[str, Any]:
         reflectorURL: str
         reflectorStatusMsg: str
     """
-    return {
-        "licenseStatus": licenseStatus,
-        "reflectorURL": getReflectorURL(),
-        "reflectorStatusMsg": "Your reflector is activated and enabled."
-    }
+    ...
 
 
-def getSerialPorts(filter: Union[str, None] = None) -> list[str]:
+def getSerialPorts(filter: Optional[str] = None) -> list[str]:
     """
     Returns a list of serial ports that are available on the system.
 
@@ -149,7 +146,7 @@ def getSerialPorts(filter: Union[str, None] = None) -> list[str]:
                       "indigo.ignoreBluetooth" is supported.
     :return:
     """
-    pass
+    ...
 
 
 def getTime() -> datetime.datetime:
@@ -158,7 +155,7 @@ def getTime() -> datetime.datetime:
 
     :return: The current Indigo server time as a datetime object.
     """
-    pass
+    ...
 
 
 def getWebServerURL() -> str:
@@ -172,7 +169,7 @@ def getWebServerURL() -> str:
 
     :return: The URL of the Indigo web server.
     """
-    pass
+    ...
 
 
 def removeAllDelayedActions():
@@ -181,7 +178,7 @@ def removeAllDelayedActions():
 
     :return: None
     """
-    pass
+    ...
 
 
 def sendEmailTo(address: str, subject: str = "", body: str = ""):
@@ -193,7 +190,7 @@ def sendEmailTo(address: str, subject: str = "", body: str = ""):
     :param body: The body of the email.
     :return: None
     """
-    pass
+    ...
 
 
 def speak(text: str, waitUntilDone: bool = False):
@@ -205,7 +202,7 @@ def speak(text: str, waitUntilDone: bool = False):
     # TODO: waitUntilDone default value?
     :return: None
     """
-    pass
+    ...
 
 
 def broadcastToSubscribers(message_topic: str, message: Any) -> None:
@@ -219,10 +216,10 @@ def broadcastToSubscribers(message_topic: str, message: Any) -> None:
     :type message: Any
     :return: None
     """
-    pass
+    ...
 
 
-def subscribeToBroadcast(pluginId: int, message_topic: str, callback: Callable[Any]) -> None:
+def subscribeToBroadcast(pluginId: str, message_topic: str, callback: Callable[[Any], None]) -> None:
     """
     Subscribes to a broadcast message topic. Broadcasters can be other plugins.
 
@@ -234,4 +231,4 @@ def subscribeToBroadcast(pluginId: int, message_topic: str, callback: Callable[A
     The callback function must have the following signature:
     def callback_func_name(self, pythonObject: Any) -> None:
     """
-    pass
+    ...

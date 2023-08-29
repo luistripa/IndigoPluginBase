@@ -1,8 +1,14 @@
+from __future__ import annotations
+
+from typing import Optional, TYPE_CHECKING
+
 import indigo
-from typing import Union
+
+if TYPE_CHECKING:
+    import _types
 
 
-def create(name: str, value: str = None, folder: Union[str, int, indigo.Folder] = None) -> indigo.Variable:
+def create(name: str, *, value: str = None, folder: Optional[_types.folderType] = None) -> indigo.Variable:
     """
     Creates a new variable.
     :param name: The name of the variable.
@@ -10,33 +16,57 @@ def create(name: str, value: str = None, folder: Union[str, int, indigo.Folder] 
     :param folder: The folder to create the variable in.
     :return: The new variable instance
     """
-    return None
+    ...
 
 
-def delete(variable: Union[str, int, indigo.Variable]) -> None:
+def delete(id: _types.variableType) -> None:
     """
     Deletes a variable.
-    :param variable: The variable to delete.
+    :param id: The variable to delete.
     :return: None
     """
-    pass
+    ...
 
 
-def duplicate(variable: Union[str, int, indigo.Variable], duplicateName: str = None):
+def duplicate(id: _types.variableType, duplicateName: str = None) -> indigo.Variable:
     """
     Duplicates a variable.
-    :param variable: The variable to duplicate.
+    :param id: The variable to duplicate.
     :param duplicateName: The name of the duplicate variable.
     :return: The new variable instance
     """
-    pass
+    ...
 
 
-def updateValue(variable: Union[str, int, indigo.Variable], value: str) -> None:
+def getDependencies(id: _types.variableType) -> dict:
+    # TODO: docstring here
+    ...
+
+
+def moveToFolder(id: _types.variableType, *, value: Optional[_types.folderType]) -> None:
+    """
+    Moves a variable to a new folder.
+    :param variable: ID or instance of the variable to move.
+    :param value: ID or instance of the folder to move the variable to.
+    :return: None
+    """
+    ...
+
+
+def displayInRemoteUI(id: _types.variableType, *, value: bool) -> None:
+    """
+    Sets whether a variable is displayed in the remote UI.
+    :param id: ID or instance of the variable to be displayed.
+    :param value: Whether the variable should be displayed in the remote UI.
+    :return: None
+    """
+    ...
+
+def updateValue(id: _types.variableType, *, value: str) -> None:
     """
     Updates the value of a variable.
-    :param variable: The variable to update.
+    :param id: The variable to update.
     :param value: The new value of the variable.
     :return: None
     """
-    pass
+    ...

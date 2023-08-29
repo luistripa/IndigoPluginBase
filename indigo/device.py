@@ -1,6 +1,10 @@
-from typing import Union, Dict, Any
+from __future__ import annotations
 
+from typing import Dict, Any, TYPE_CHECKING
 import indigo
+
+if TYPE_CHECKING:
+    import _types
 
 
 def allOff(selector: indigo.kAllDeviceSel = None):
@@ -12,25 +16,26 @@ def allOff(selector: indigo.kAllDeviceSel = None):
 
     :return: None
     """
-    pass
+    ...
 
 
-def beep(deviceId: int) -> None:
+def beep(deviceId: _types.deviceType) -> None:
     """
     Beeps the device. This is only supported by some devices.
     :param deviceId: The ID of the device to beep.
     :return: None
     """
-    pass
+    ...
 
 
-def create(address: str = "",
+def create(deviceTypeId: _types.deviceType,
+           name: str,
+           protocol: indigo.kProtocol,
+           *,
+           address: str = "",
            description: str = "",
-           device_type_id: str = "",
-           name: str = "",
-           plugin_id: str = "",
+           pluginId: str = "",
            props: Dict[str, Any] = None,
-           protocol: indigo.kProtocol = indigo.kProtocol.Plugin,
            folder: int = 0) -> indigo.Device:
     """
     Creates a new device.
@@ -50,21 +55,19 @@ def create(address: str = "",
     :param folder: The folder ID of the folder to create the device in.
     :return:
     """
-    if props is None:
-        props = dict()
-    return None
+    ...
 
 
-def delete(device: Union[indigo.Device, int]) -> None:
+def delete(device: _types.deviceType) -> None:
     """
     Deletes the device.
     :param device: The instance or id of the device to delete.
     :return: None
     """
-    pass
+    ...
 
 
-def duplicate(device: Union[indigo.Device, int], duplicateName="") -> indigo.Device:
+def duplicate(device: _types.deviceType, duplicateName: str = "") -> indigo.Device:
     """
     Duplicates the device.
 
@@ -72,10 +75,10 @@ def duplicate(device: Union[indigo.Device, int], duplicateName="") -> indigo.Dev
     :param duplicateName: The name of the duplicate device.
     :return:
     """
-    return None
+    ...
 
 
-def enable(device: Union[indigo.Device, int], value: bool = False) -> None:
+def enable(device: _types.deviceType, *, value: bool) -> None:
     """
     Enables or disables the device.
     :param device: The device to enable or disable.
@@ -85,16 +88,16 @@ def enable(device: Union[indigo.Device, int], value: bool = False) -> None:
     pass
 
 
-def getGroupList(device: Union[indigo.Device, int]) -> indigo.List:
+def getGroupList(device: _types.deviceType) -> indigo.List:
     """
     Returns a list of devices in the same group, including the device itself.
     :param device: The device to get the group list for.
     :return: A list of devices in the same group, including the device itself.
     """
-    return indigo.List()
+    ...
 
 
-def getDependencies(device: Union[indigo.Device, int]) -> indigo.Dict:
+def getDependencies(device: _types.deviceType) -> indigo.Dict:
     """
     Returns a dict containing the dependencies of the device.
     Dependencies can be action groups, control pages, other devices, schedules, triggers, and variables.
@@ -109,68 +112,68 @@ def getDependencies(device: Union[indigo.Device, int]) -> indigo.Dict:
     :param device: The device to get the dependencies for.
     :return: A dict containing the dependencies of the device.
     """
-    return indigo.Dict()
+    ...
 
 
-def moveToFolder(device: Union[indigo.Device, int], folder: Union[indigo.Folder, int]):
+def moveToFolder(device: _types.deviceType, *, value: _types.folderType):
     """
     Moves the device to the specified folder.
     :param device:
     :param folder:
     :return:
     """
-    pass
+    ...
 
 
-def ping(device: Union[indigo.Device, int], suppressLogging: bool = False) -> bool:
+def ping(device: _types.deviceType, suppressLogging: bool = False) -> bool:
     """
     Pings the device.
     :param device: The device to ping.
     :param suppressLogging: True to suppress logging, False to log.
     :return: A dict containing the "Success" and "TimeDelta" (milliseconds) result.
     """
-    pass
+    ...
 
 
-def removeDelayedActions(device: Union[indigo.Device, int]) -> None:
+def removeDelayedActions(device: _types.deviceType) -> None:
     """
     Removes all delayed actions for the device.
     :param device: The device to remove the delayed actions for.
     :return: None
     """
-    pass
+    ...
 
 
-def resetEnergyAccumTotal(device: Union[indigo.Device, int]) -> None:
+def resetEnergyAccumTotal(device: _types.deviceType) -> None:
     """
     Resets the energy accumulation total for the device.
     :param device: The device to reset the energy accumulation total for.
     :return: None
     """
-    pass
+    ...
 
 
-def displayInRemoteUI(device: Union[indigo.Device, int], value: bool = True) -> None:
+def displayInRemoteUI(device: _types.deviceType, *, value: bool) -> None:
     """
     Sets whether the device should be displayed in the remote UI.
     :param device: The device to set the display in remote UI value for.
     :param value: True to display the device in the remote UI, False to hide it.
     :return: None
     """
-    pass
+    ...
 
 
-def statusRequest(device: Union[indigo.Device, int], suppressLogging: bool = False) -> None:
+def statusRequest(device: _types.deviceType, suppressLogging: bool = False) -> None:
     """
     Requests the device to send its current status to the server.
     :param device: The device to request the status for.
     :param suppressLogging: True to suppress logging, False to log.
     :return: None
     """
-    pass
+    ...
 
 
-def toggle(device: Union[indigo.Device, int], delay: int = -1, duration: int = -1) -> None:
+def toggle(device: _types.deviceType, delay: int = 0, duration: int = 0) -> None:
     """
     Toggles the device.
     :param device: The device to toggle.
@@ -178,10 +181,10 @@ def toggle(device: Union[indigo.Device, int], delay: int = -1, duration: int = -
     :param duration: The duration in seconds before the device is toggled back to its original state.
     :return: None
     """
-    pass
+    ...
 
 
-def turnOff(device: Union[indigo.Device, int], delay: int = -1, duration: int = -1) -> None:
+def turnOff(device: _types.deviceType, delay: int = 0, duration: int = 0) -> None:
     """
     Turns off the device.
     Only works for devices that can be turned on and off.
@@ -191,10 +194,10 @@ def turnOff(device: Union[indigo.Device, int], delay: int = -1, duration: int = 
     :param duration: The duration in seconds before the device is turned back on.
     :return: None
     """
-    pass
+    ...
 
 
-def turnOn(device: Union[indigo.Device, int], delay: int = -1, duration: int = -1) -> None:
+def turnOn(device: _types.deviceType, delay: int = 0, duration: int = 0) -> None:
     """
     Turns on the device.
     Only works for devices that can be turned on and off.
@@ -204,10 +207,10 @@ def turnOn(device: Union[indigo.Device, int], delay: int = -1, duration: int = -
     :param duration: The duration in seconds before the device is turned off.
     :return: None
     """
-    pass
+    ...
 
 
-def unlock(device: Union[indigo.Device, int], delay: int = -1, duration: int = -1) -> None:
+def unlock(device: _types.deviceType, delay: int = 0, duration: int = 0) -> None:
     """
     Unlocks the device.
     Only works for devices that can be locked and unlocked.
@@ -217,10 +220,10 @@ def unlock(device: Union[indigo.Device, int], delay: int = -1, duration: int = -
     :param duration: The duration in seconds before the device is locked.
     :return: None
     """
-    pass
+    ...
 
 
-def lock(device: Union[indigo.Device, int], delay: int = -1, duration: int = -1) -> None:
+def lock(device: _types.deviceType, delay: int = 0, duration: int = 0) -> None:
     """
     Locks the device.
     Only works for devices that can be locked and unlocked.
@@ -230,4 +233,4 @@ def lock(device: Union[indigo.Device, int], delay: int = -1, duration: int = -1)
     :param duration: The duration in seconds before the device is unlocked.
     :return: None
     """
-    pass
+    ...

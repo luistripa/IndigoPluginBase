@@ -1,10 +1,10 @@
 
 
-class List:
+class List(list):
     """Indigo's internal representation of a list"""
-    pass
+    ...
 
 
-class Dict:
+class Dict(dict):
     """Indigo's internal representation of a dictionary"""
-    pass
+    ...

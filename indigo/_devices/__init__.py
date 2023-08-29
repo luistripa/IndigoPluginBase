@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import dataclasses
 import datetime
 from typing import List, Dict, Any
@@ -7,8 +9,8 @@ import indigo
 
 class DeviceList(indigo.List):
 
-    folders: indigo.FolderList = None
-    folder: indigo.FolderCmds = None
+    folders: indigo.FolderList
+    folder: indigo.FolderCmds
 
     def subscribeToChanges(self):
         """
@@ -20,10 +22,12 @@ class DeviceList(indigo.List):
 
         :return: None
         """
-        pass
+        ...
 
-    def __iter__(self, filter="") -> List["indigo.Device"]:
-        pass
+    def __iter__(self, filter="") -> List["indigo.Device"]: ...
+
+    def __getitem__(self, item) -> indigo.Device:
+        ...
 
 
 @dataclasses.dataclass
@@ -70,7 +74,7 @@ class Device:
         update the local copy.
         :return: None
         """
-        pass
+        ...
 
     def updateStateOnServer(self, key: str, value: Any) -> None:
         """
@@ -79,7 +83,7 @@ class Device:
         :param value: The value to set the state to.
         :return: None
         """
-        pass
+        ...
 
     def updateStatesOnServer(self, states: List[Dict[str, Any]]) -> None:
         """
@@ -88,7 +92,7 @@ class Device:
         to update, and the 'value' is the value to set the state to.
         :return: None
         """
-        pass
+        ...
 
     def updateStateImageOnServer(self, image: str) -> None:
         """
@@ -96,7 +100,7 @@ class Device:
         :param image:
         :return:
         """
-        pass
+        ...
 
 
 class DimmerDevice(Device):

@@ -1,4 +1,6 @@
-from typing import Any
+from __future__ import annotations
+
+from typing import Any, Union, Type
 
 import indigo
 import dataclasses
@@ -6,11 +8,10 @@ import dataclasses
 
 class VariableList(indigo.List):
 
-    folders: indigo.FolderList = None
-    folder: indigo.FolderCmds = None
+    folders: indigo.FolderList
+    folder: indigo.FolderCmds
 
-    def __iter__(self, filter="") -> indigo.List["indigo.Variable"]:
-        pass
+    def __iter__(self, filter: str = "") -> indigo.List["indigo.Variable"]: ...
 
 
 @dataclasses.dataclass
@@ -25,7 +26,7 @@ class Variable:
     sharedProps: indigo.Dict[str, Any]
     value: str
 
-    def getValue(self, type: Any, default: bool = None) -> Any:
+    def getValue(self, type: Type[Union[int, float, bool]], default: Any = None) -> Union[int, float, bool]:
         """
         Returns the variable value as the specified type.
 
@@ -40,4 +41,4 @@ class Variable:
         :param default: The default value to return if the variable value cannot be converted to the specified type.
         :return: The variable value as the specified type or the default value if the variable value cannot be converted.
         """
-        pass
+        ...

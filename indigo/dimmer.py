@@ -1,6 +1,10 @@
-from typing import Union
+from __future__ import annotations
+from typing import TYPE_CHECKING
 
 import indigo
+
+if TYPE_CHECKING:
+    import _types
 
 
 def allLightsOff(selector: indigo.kAllDeviceSel = None) -> None:
@@ -10,7 +14,7 @@ def allLightsOff(selector: indigo.kAllDeviceSel = None) -> None:
     :param selector: The selector to use when turning off the dimmers. If None, all dimmers will be turned off.
     :return: None
     """
-    pass
+    ...
 
 
 def allLightsOn(selector: indigo.kAllDeviceSel = None) -> None:
@@ -20,10 +24,10 @@ def allLightsOn(selector: indigo.kAllDeviceSel = None) -> None:
     :param selector: The selector to use when turning on the dimmers. If None, all dimmers will be turned on.
     :return: None
     """
-    pass
+    ...
 
 
-def brighten(device: Union[str, int, indigo.DimmerDevice], by: int = -1, delay: int = -1):
+def brighten(device: _types.dimmerDeviceType, by: int = -1, delay: int = -1):
     """
     Brightens a dimmer by the specified amount.
 
@@ -32,10 +36,10 @@ def brighten(device: Union[str, int, indigo.DimmerDevice], by: int = -1, delay: 
     :param delay: Not required. The amount of time to wait between increments.
     :return: None
     """
-    pass
+    ...
 
 
-def dim(device: Union[str, int, indigo.DimmerDevice], by: int = -1, delay: int = -1):
+def dim(device: _types.dimmerDeviceType, by: int = -1, delay: int = -1):
     """
     Dims a dimmer by the specified amount.
 
@@ -44,10 +48,10 @@ def dim(device: Union[str, int, indigo.DimmerDevice], by: int = -1, delay: int =
     :param delay: Not required. The amount of time to wait between increments.
     :return: None
     """
-    pass
+    ...
 
 
-def setBrightness(device: Union[str, int, indigo.DimmerDevice], value: int = 50, delay: int = -1):
+def setBrightness(device: _types.dimmerDeviceType, *, value: int, delay: int = -1):
     """
     Sets the brightness of a dimmer.
 
@@ -56,10 +60,10 @@ def setBrightness(device: Union[str, int, indigo.DimmerDevice], value: int = 50,
     :param delay: The amount of seconds to wait before setting the brightness.
     :return: None
     """
-    pass
+    ...
 
 
-def setLedState(device: Union[str, int, indigo.DimmerDevice], index: int, value: bool, suppressLogging: bool = False, updateStatesOnly: bool = False):
+def setLedState(device: _types.dimmerDeviceType, *, index: int, value: bool, suppressLogging: bool = False, updateStatesOnly: bool = False):
     """
     Sets the state of a dimmer's LED.
 
@@ -70,4 +74,4 @@ def setLedState(device: Union[str, int, indigo.DimmerDevice], index: int, value:
     :param updateStatesOnly: If True, the state change will not be sent to the device.
     :return: None
     """
-    pass
+    ...
