@@ -450,3 +450,14 @@ class PluginBase:
         :return: None
         """
         pass
+
+    
+    def zwaveCommandReceived(self, cmd: dict):
+        """Method called when a Z-Wave command is received by Indigo. Requires indigo.zwave.subscribeToIncoming() to be called.
+        :param cmd: A dictionary containing the following keys: bytes, nodeId, endpoint"""
+        ...
+
+    def zwaveCommandSent(self, cmd: dict):
+        """Method called when a Z-Wave command is sent by Indigo. Requires indigo.zwave.subscribeToOutgoing() to be called.
+        :param cmd: A dictionary containing the following keys: bytes, timeDelta, cmdSuccess, nodeId, endpoint"""
+        ...
